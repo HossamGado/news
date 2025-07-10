@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news/models/listView_model.dart';
+import 'package:news/models/list_view_model.dart';
 import 'package:news/views/category_view.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -14,7 +14,9 @@ class CategoryCard extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return CategoryView(category: model.text,);
+              return CategoryView(
+                category: model.text,
+              );
             },
           ),
         );
@@ -24,19 +26,17 @@ class CategoryCard extends StatelessWidget {
         child: Container(
           width: 200,
           height: 100,
-          child: Container(
-            child: Center(
-                child: Text(
-              model.text,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            )),
-          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             image: DecorationImage(
                 fit: BoxFit.fill, image: AssetImage(model.image)),
           ),
+          child: Center(
+              child: Text(
+            model.text,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
+          )),
         ),
       ),
     );

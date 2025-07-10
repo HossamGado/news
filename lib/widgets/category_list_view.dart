@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news/models/listView_model.dart';
+import 'package:news/models/list_view_model.dart';
 import 'package:news/widgets/category_card.dart';
-
 class CategoryListView extends StatelessWidget {
   const CategoryListView({super.key});
   final  List<ListViewModel> listModel = const [

@@ -3,9 +3,7 @@ import 'package:news/models/article_model.dart';
 
 class NewsService {
   final Dio dio;
-
   NewsService(this.dio);
-
   Future<List<ArticleModel>> getNews({required String category}) async {
     try {
       var response = await dio.get(
@@ -17,7 +15,9 @@ class NewsService {
       ArticleModel articleModel = ArticleModel(
           image: article["urlToImage"],
           title: article["title"],
-          description: article["description"]);
+          description: article["description"],
+        url:article["url"],
+      );
       articleList.add(articleModel);
     }
     return articleList;
