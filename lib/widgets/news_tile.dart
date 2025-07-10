@@ -24,9 +24,12 @@ class NewsTile extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Image.network(
-                fit: BoxFit.cover,
-                articleModel.image ?? "assets/stakeholder.jpg"),
+            child: articleModel.image != null
+                ? Image.network(fit: BoxFit.cover, articleModel.image!)
+                : Image.asset(
+                    "assets/stakeholder.jpg",
+                    fit: BoxFit.cover,
+                  ),
           ),
           const SizedBox(
             height: 15,
